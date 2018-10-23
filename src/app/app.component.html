@@ -1,0 +1,53 @@
+<app-layout>
+  <div>
+    <h3>Subnets/IP</h3>
+    <p>
+     This project is using Angular 6, Bootstrap 4.0 and Slim 3 (for Rest API)
+    </p>
+  </div>
+  </app-layout>
+<div class="container">
+  <div class="row">
+  <div class="col">
+  <p class="p-3 mb-2 bg-secondary text-white">Subnets</p>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default"  *ngFor="let sub of subnets$">
+          <div class="panel-heading" role="tab" id="heading_{{sub.cidr}}">
+               <h6 class="panel-title">
+          <a style="cursor: pointer;" (click)="getSubnetIp(sub.cidr)" data-toggle="collapse" data-parent="#accordion" href="#collapse{{sub.cidr}}" aria-expanded="false">
+            {{sub.subnet}}/{{sub.cidr}}
+          </a>
+        </h6>
+  
+          </div>
+          <div id="collapse{{sub.cidr}}" class="panel-collapse collapse in" role="tabpanel">
+              <div class="panel-body" *ngFor="let ip of subip$">
+                  <ul>
+                      <a style="cursor: pointer;" (click)="getSubnetDetail(ip.id)">
+                    <li *ngIf="ip.ips === 198.178.92.3"><span>yes</span>- {{ip.ips}}</li>
+                    <li>- {{ip.ips}}</li>
+                      </a>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+  <div class="col-s-2">
+      
+    </div>
+    <div class="col">
+        <p class="p-3 mb-2 bg-secondary text-white">IP: <span *ngFor="let d of subdetail$">{{d.ip}}</span></p>
+        <div *ngFor="let d of subdetail$">
+          <ul>
+            <li>
+                Subnet: {{d.subnet}}
+            </li>
+            <li>
+                Address tag: {{d.address_tag}}
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+  </div>

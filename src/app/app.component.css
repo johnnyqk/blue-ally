@@ -1,0 +1,27 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+.panel-title > a:before {
+    float: left !important;
+    font-family: FontAwesome;
+    content:"\f078";
+    padding-right: 5px;
+}
+.panel-title > a.collapsed:before {
+    float: left !important;
+    content:"\f054";
+}
+.panel-title > a:hover, 
+.panel-title > a:active, 
+.panel-title > a:focus  {
+    text-decoration:none;
+}
+ul {
+    list-style: none;
+}
+ol {
+    list-style: none;
+}
+a {
+    color: black;
+}
+a:hover {color: blue;}
+a:active{color: slategray;}
